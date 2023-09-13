@@ -18,7 +18,7 @@ a set contain only uniq values
 if there is an duplicate value
 it will be ignorde like above example
 */
-console.log(new Set ('Maanoj'));
+// console.log(new Set ('Maanoj'));
 
 
 // we can get length or size of an Set by using size methode
@@ -41,12 +41,12 @@ ordersSet.delete('pasta');
 // all value in the set
 // ordersSet.clear();
 
-console.log(ordersSet);
+// console.log(ordersSet);
 
 // set are also itarbale so we can loop thorugh it
 
 for (const order of ordersSet) {
-    console.log(`Today's speicaila items ${order} `);
+    // console.log(`Today's speicaila items ${order} `);
 }
 
 
@@ -57,7 +57,7 @@ const employeeSet = new Set(employee)
 // creating array from set
 const employeeSetA = [...new Set(employee)]
 
-console.log(employeeSet);
+// console.log(employeeSet);
 /*
 in sets there are actually no indexes. And in 
 fact, there is no way of getting values out of 
@@ -74,3 +74,41 @@ use an array. You wouldn't use a set for that. And so
 again, there's no need for getting values out of a set,
 because if you need it, then you will just use an array.
 */
+
+// Maps
+
+
+const rest = new Map();
+/*
+And the easiest way to create a map is to 
+actually create an empty map just like 
+this without passing anything in. And 
+then, to fill up the map we can use 
+the set method.
+*/
+
+rest.set('name', 'Classico Italiano')
+.set(1, 'Kalyan', 'Khadakpada')
+.set(2, 'Kurla', 'Mumbai')
+
+rest
+    .set('categories', ['italian', 'pizzeria', 'Vegetarian', 'Organic'])
+    .set('open', 11)
+    .set('close', 23)
+    .set(true, `we are open :D`)
+    .set(false, 'we are close :(')
+
+// read data from the map
+// console.log(rest.get(true));
+console.log(rest.get('name'));
+
+
+const time = 8;
+
+console.log(rest.get(time>rest.get('open') && time<rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2)
+rest.clear()
+console.log(rest);
+console.log(rest.size);
