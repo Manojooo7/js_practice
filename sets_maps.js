@@ -112,3 +112,17 @@ rest.delete(2)
 rest.clear()
 console.log(rest);
 console.log(rest.size);
+
+// Maps Iteration
+
+const question = new Map([
+    ['question', 'what is the best programming language in the world?'],
+    [1, 'C'],
+    [2, 'Java'],
+    [3, 'JavaScript'],
+    ['Correct', 3],
+    [true, 'correct 🎉'],
+    [false, 'Try Again']
+]);
+
+console.log(question);
