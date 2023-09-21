@@ -1,3 +1,28 @@
+const restaurant = {
+    restaurantName: 'Classlco Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+    starterMenu: [' Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad', 'Bread'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+    openingHours: {
+        thu: {
+            open: 12,
+            close: 22
+        },
+        fri: {
+            open: 11,
+            close: 23
+        },
+        sat: {
+            open: 0, //open 24 hours
+            close: 24
+        }
+    },
+
+};
+
+
 /*
 a set is basically just a collection 
 of unique values. So that means that 
@@ -88,8 +113,8 @@ the set method.
 */
 
 rest.set('name', 'Classico Italiano')
-.set(1, 'Kalyan', 'Khadakpada')
-.set(2, 'Kurla', 'Mumbai')
+    .set(1, 'Kalyan', 'Khadakpada')
+    .set(2, 'Kurla', 'Mumbai')
 
 rest
     .set('categories', ['italian', 'pizzeria', 'Vegetarian', 'Organic'])
@@ -105,7 +130,7 @@ console.log(rest.get('name'));
 
 const time = 8;
 
-console.log(rest.get(time>rest.get('open') && time<rest.get('close')));
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
 console.log(rest.has('categories'));
 rest.delete(2)
@@ -126,3 +151,25 @@ const question = new Map([
 ]);
 
 console.log(question);
+
+// convert objects to map
+
+console.log(Object.entries(restaurant.openingHours));
+
+
+console.log(question.get('question'));
+for (const [key, value] of question) {
+    if (typeof key === 'number') console.log(`Answer ${key}: 
+    ${value}`);
+}
+
+const answer = Number(prompt('Your Answer'));
+console.log(answer);
+
+// answer === 3 ? console.log(question.get(true)) : console.log(question.get(false));;
+
+console.log(question.get(question.get('correct') = answer));
+
+//convert map to array
+
+console.log([...question]);
