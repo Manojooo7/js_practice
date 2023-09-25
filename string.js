@@ -156,87 +156,87 @@ const newName=['Mr.', firstName, lastName.toUpperCase()].join(' ')
 
 console.log(newName);
 
-const capitalizedName = function(name){
-    // here we split the name by space
-    const names =name.split(' ');
-    const namesUpper =[]
+// {const capitalizedName = function(name){
+//     // here we split the name by space
+//     const names =name.split(' ');
+//     const namesUpper =[]
 
-    for(const n of names){
+//     for(const n of names){
         
-        /* below we first convert the first letter of the name
-        to uppercase eith the toUpperCase() methode then we slcie
-        the name from the 2nd word and join it with the capital word
+//         /* below we first convert the first letter of the name
+//         to uppercase eith the toUpperCase() methode then we slcie
+//         the name from the 2nd word and join it with the capital word
 
-        manoj mondal>{ M M > anoj ondal>} the  we add this twho string 
-        which convert to Manoj Mondal 
+//         manoj mondal>{ M M > anoj ondal>} the  we add this twho string 
+//         which convert to Manoj Mondal 
         
-        */
+//         */
 
-        // namesUpper.push(n[0].toUpperCase()+n.slice(1))
+//         // namesUpper.push(n[0].toUpperCase()+n.slice(1))
 
-        // here we replace the small word of the first sentece 
-        //with capital captial word 
+//         // here we replace the small word of the first sentece 
+//         //with capital captial word 
 
-        namesUpper.push(n.replace(n[0], n[0].toUpperCase()))
-    }
+//         namesUpper.push(n.replace(n[0], n[0].toUpperCase()))
+//     }
 
-    console.log(namesUpper.join(' '));
-}
+//     console.log(namesUpper.join(' '));
+// }
 
-capitalizedName('manoj mondal')
-capitalizedName('roshni mallick')
-capitalizedName('subham rai')
+// capitalizedName('manoj mondal')
+// capitalizedName('roshni mallick')
+// capitalizedName('subham rai')
 
-// padding
+// // padding
 
-const message = 'go to gate 23!';
+// const message = 'go to gate 23!';
 
-// this padStart() methode wil convert the length of the 
-//mesege to 25 by adding + at start
+// // this padStart() methode wil convert the length of the 
+// //mesege to 25 by adding + at start
 
-// and the padEnd method will add some + at the end of the string 
-// until the length of the string go up to 35
-console.log(message.padStart(25, '+').padEnd(35, '+'));
+// // and the padEnd method will add some + at the end of the string 
+// // until the length of the string go up to 35
+// console.log(message.padStart(25, '+').padEnd(35, '+'));
 
-// real world example
+// // real world example
 
-/*
-This is an real world exapmle we usallly saw that every in online platform we never see the 
-full numbers of the credit card rather we only saw the lat 4 digit so where we create a function
-maskCreditCard which do the same
+// /*
+// This is an real world exapmle we usallly saw that every in online platform we never see the 
+// full numbers of the credit card rather we only saw the lat 4 digit so where we create a function
+// maskCreditCard which do the same
 
-*/
+// */
 
-const maskCreditCaard = function(number){
-    // here weconver the argument from number to string
-    const str = number + '';
+// const maskCreditCaard = function(number){
+//     // here we convert the argument from number to string
+//     const str = number + '';
 
-    // here we slice  the the string from last 4 digit by using negetive value
-    const last = str.slice(-4);
+//     // here we slice  the the string from last 4 digit by using negetive value
+//     const last = str.slice(-4);
 
-    // and here we add padding of * with the sliced 4 digit upto it's original length
-    return last.padStart(str.length, '*')
+//     // and here we add padding of * with the sliced 4 digit upto it's original length
+//     return last.padStart(str.length, '*')
 
-}
+// }
 
-console.log(maskCreditCaard(4566522))
-console.log(maskCreditCaard(4566522244566324))
-console.log(maskCreditCaard('485662225845552'))
+// console.log(maskCreditCaard(4566522))
+// console.log(maskCreditCaard(4566522244566324))
+// console.log(maskCreditCaard('485662225845552'))
 
 
-// repeat method
+// // repeat method
 
-const message2 = 'Bad Weather ......... all departre Delayed';
+// const message2 = 'Bad Weather ......... all departre Delayed';
 
-console.log(message.repeat(5));
+// console.log(message.repeat(5));
 
-const planesInLine = function(n){
-    console.log(`There are ${n} plans in line ${'✈'.repeat(n)}`);
-}
+// const planesInLine = function(n){
+//     console.log(`There are ${n} plans in line ${'✈'.repeat(n)}`);
+// }
 
-planesInLine(5)
-planesInLine(12)
-planesInLine(18)
+// planesInLine(5)
+// planesInLine(12)
+// planesInLine(18)
 
 
 
