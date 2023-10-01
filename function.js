@@ -63,3 +63,41 @@ console.log(flight);
 console.log(jonas);
 
 
+// is the same doing .........
+
+// const flightNum = flight;
+// const passenger = jonas;
+
+// const newPassport = function (person) {
+//     person.passport = Math.trunc(Math.random() * 100000000);
+// };
+
+// newPassport(jonas);
+// checkIn(flightNum, passenger);
+
+
+const oneWord = function (str) {
+    return str.replaceAll(' ', '').toLowerCase();
+}
+
+const upperFirstWord = function (str) {
+    const [first, ...others] = str.split(' ');
+    return [first.toUpperCase(), ...others].join();
+}
+
+//Higher order function
+const transformer = function (str, fn) {
+    console.log(`Original string: ${str}`);
+    console.log(`Transformed string: ${fn(str)}`);
+
+
+    console.log(`Transformed by: ${fn.name}`);
+}
+transformer('javaScript is the best!', upperFirstWord)
+transformer('javaScript is the best!', oneWord)
+
+const high5 = function () {
+    console.log('👋');
+}
+
+document.body.addEventListener('click', high5)
