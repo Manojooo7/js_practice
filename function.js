@@ -46,20 +46,38 @@ const jonas = {
     passport: 2778895345
 };
 
-const checkIn = function(flightNum,passenges){
-// this is not a good practice to change a function peramiter 
-flightNum= 'LH99';
-passenges.name = 'Mr. ' + passenges.name;
+// const checkIn = function(flightNum,passenges){
+// // this is not a good practice to change a function peramiter 
+// flightNum= 'LH99';
+// passenges.name = 'Mr. ' + passenges.name;
 
-if(passenges.passport === 2778895345){
-    alert('check-in')
-}else{
-    alert('wrong passport!')
+// if(passenges.passport === 2778895345){
+//     alert('check-in')
+// }else{
+//     alert('wrong passport!')
+// }
+
+// }
+// checkIn(flight, jonas)
+// console.log(flight);
+// console.log(jonas);
+
+
+const greet = function(greeting){
+    return function(name){
+        console.log(`${greeting} ${name}`);
+    }
 }
 
-}
-checkIn(flight, jonas)
-console.log(flight);
-console.log(jonas);
+const greeterHey = greet('Hey')
 
+greeterHey('jonas')
+greeterHey('steven')
+
+greet('Hello')('jonas')
+
+// using array function
+
+const greetArr = greeting => person => console.log(`${greeting} ${person}`);
+greetArr('Hi')('jonas')
 
