@@ -63,3 +63,103 @@ const jonas = {
 // console.log(jonas);
 
 
+// const greet = function(greeting){
+//     return function(name){
+//         console.log(`${greeting} ${name}`);
+//     }
+// }
+
+// const greeterHey = greet('Hey')
+
+// greeterHey('jonas')
+// greeterHey('steven')
+
+// greet('Hello')('jonas')
+
+// using array function
+
+// const greetArr = greeting => person => console.log(`${greeting} ${person}`);
+// greetArr('Hi')('jonas')
+
+// is the same doing .........
+
+// const flightNum = flight;
+// const passenger = jonas;
+
+// const newPassport = function (person) {
+//     person.passport = Math.trunc(Math.random() * 100000000);
+// };
+
+// newPassport(jonas);
+// checkIn(flightNum, passenger);
+
+
+const oneWord = function (str) {
+    return str.replaceAll(' ', '').toLowerCase();
+}
+
+const upperFirstWord = function (str) {
+    const [first, ...others] = str.split(' ');
+    return [first.toUpperCase(), ...others].join();
+}
+
+//Higher order function
+const transformer = function (str, fn) {
+    console.log(`Original string: ${str}`);
+    console.log(`Transformed string: ${fn(str)}`);
+
+
+    console.log(`Transformed by: ${fn.name}`);
+}
+transformer('javaScript is the best!', upperFirstWord)
+transformer('javaScript is the best!', oneWord)
+
+const high5 = function () {
+    console.log('👋');
+}
+
+document.body.addEventListener('click', high5)
+
+// call an dapply mehtods 
+
+const lufthansa = {
+    airline: 'Lufthasa',
+    iataCode: 'LH',
+    bookings: [],
+
+    book(flightNum, name){
+        console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+        this.bookings.push({flight: `${this.iataCode}${this.flightNum}`, name})
+    },
+}
+
+
+lufthansa.book(239, 'Manoj Mondal')
+lufthansa.book(635, 'Sontu Mondal')
+
+const eurowings = {
+    airline: 'Eurowings',
+    iataCode: 'EW',
+    bookings: []
+}
+
+const book = lufthansa.book
+
+// does not work
+// book(23, 'Subham')
+
+book.call(eurowings,23, 'subham') 
+console.log(eurowings);
+book.call(lufthansa,233, 'Roshni') 
+console.log(lufthansa);
+
+const swiss = {
+    airline: 'Swiss Air Lines',
+    iataCode: 'LX',
+    bookings: []
+}
+
+book.call(swiss, 748, 'Prosenjit')
+console.log(swiss);
+
+
