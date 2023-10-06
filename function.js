@@ -94,31 +94,31 @@ const jonas = {
 // checkIn(flightNum, passenger);
 
 
-const oneWord = function (str) {
-    return str.replaceAll(' ', '').toLowerCase();
-}
+// const oneWord = function (str) {
+//     return str.replaceAll(' ', '').toLowerCase();
+// }
 
-const upperFirstWord = function (str) {
-    const [first, ...others] = str.split(' ');
-    return [first.toUpperCase(), ...others].join();
-}
+// const upperFirstWord = function (str) {
+//     const [first, ...others] = str.split(' ');
+//     return [first.toUpperCase(), ...others].join();
+// }
 
 //Higher order function
-const transformer = function (str, fn) {
-    console.log(`Original string: ${str}`);
-    console.log(`Transformed string: ${fn(str)}`);
+// const transformer = function (str, fn) {
+//     console.log(`Original string: ${str}`);
+//     console.log(`Transformed string: ${fn(str)}`);
 
 
-    console.log(`Transformed by: ${fn.name}`);
-}
-transformer('javaScript is the best!', upperFirstWord)
-transformer('javaScript is the best!', oneWord)
+//     console.log(`Transformed by: ${fn.name}`);
+// }
+// transformer('javaScript is the best!', upperFirstWord)
+// transformer('javaScript is the best!', oneWord)
 
-const high5 = function () {
-    console.log('👋');
-}
+// const high5 = function () {
+//     console.log('👋');
+// }
 
-document.body.addEventListener('click', high5)
+// document.body.addEventListener('click', high5)
 
 // call an dapply mehtods 
 
@@ -163,3 +163,48 @@ book.call(swiss, 748, 'Prosenjit')
 console.log(swiss);
 
 
+// Apply Methode
+
+const flightData = [583, 'George Cooper'];
+// book.apply(swiss, flightData);
+
+console.log(swiss);
+book.call(swiss, ...flightData)
+
+// bind methode
+
+/*
+Just like the call method, bind also allows us 
+to manually set this keywords for any function call.
+Now, the difference is that bind does not immediately 
+call the function. Instead it returns a new function
+where this keyword is bound. So it's set to whatever 
+value we pass into bind.
+*/
+
+// book.call(eurowings,23, 'subham') 
+
+/*
+this will not call the book function. Instead it 
+will return a new function where this keyword will 
+always be set to Eurowings.
+*/
+
+// book.bind(eurowings)
+
+/*
+And so let's create a new function here called bookEW,
+where its just a code of Eurowings.
+*/
+const bookEW = book.bind(eurowings)
+// And so now let's use this function.
+/*
+this now looks like the normal book function call.
+And that's because we akready se the this keyword
+in booknew function now we just passing the values
+of this keyword. And so  here, of course, we no
+longer need to specify to these keywords again.
+*/
+bookEW(23, 'steven william')
+
+console.log(eurowings);
