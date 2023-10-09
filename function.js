@@ -129,7 +129,7 @@ const lufthansa = {
 
     book(flightNum, name){
         console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
-        this.bookings.push({flight: `${this.iataCode}${this.flightNum}`, name})
+        this.bookings.push({flight: `${this.iataCode}${flightNum}`, name})
     },
 }
 
@@ -148,10 +148,9 @@ const book = lufthansa.book
 // does not work
 // book(23, 'Subham')
 
-book.call(eurowings,23, 'subham') 
-console.log(eurowings);
-book.call(lufthansa,233, 'Roshni') 
-console.log(lufthansa);
+// book.call(eurowings,23, 'subham') 
+// book.call(lufthansa,233, 'Roshni') 
+// console.log(lufthansa);
 
 const swiss = {
     airline: 'Swiss Air Lines',
@@ -159,17 +158,17 @@ const swiss = {
     bookings: []
 }
 
-book.call(swiss, 748, 'Prosenjit')
-console.log(swiss);
+// book.call(swiss, 748, 'Prosenjit')
+// console.log(swiss);
 
 
 // Apply Methode
 
-const flightData = [583, 'George Cooper'];
+// const flightData = [583, 'George Cooper'];
 // book.apply(swiss, flightData);
 
-console.log(swiss);
-book.call(swiss, ...flightData)
+// console.log(swiss);
+// book.call(swiss, ...flightData)
 
 // bind methode
 
@@ -197,6 +196,8 @@ And so let's create a new function here called bookEW,
 where its just a code of Eurowings.
 */
 const bookEW = book.bind(eurowings)
+const bookLH = book.bind(lufthansa)
+const bookLX = book.bind(swiss)
 // And so now let's use this function.
 /*
 this now looks like the normal book function call.
@@ -205,6 +206,49 @@ in booknew function now we just passing the values
 of this keyword. And so  here, of course, we no
 longer need to specify to these keywords again.
 */
-bookEW(23, 'steven william')
+bookEW(23, 'steven william');
 
+/*
+in the call method, we can pass multiple arguments here
+And so in the bind method, we can actually do the same.
+And then all of these arguments will also be basically 
+set in stone. So they will be defined and the function 
+will then always be called with these same arguments.
+*/
+
+//For example, we could use bind to create a function
+//for one specific airline and a specific flight number.
+
+const bookEW23 = book.bind(eurowings, 23)
+
+/*
+And so if we look at our bind function now, remember that it needs the flight number and the name. But now in our bookEW23 function, it is as if this first argument was already set. And so all remaining function now only need the name. So this function, this one now only needs the name, because the number was already preset here in the bind method. So, let's see.
+*/
+
+bookEW23('Manoj Mondal')
+bookEW23('Roshni Mallick')
 console.log(eurowings);
+
+
+// usecases of bind
+
+// with event listner
+
+// with event listeners
+
+
+//  adding a new property only to the Lufthansa object and let's set it to 300. So meaning that this company has 300 planes.
+
+lufthansa.planes = 300;
+
+/*
+And then we also add a new method only to the Lufthansa object, which is to buy a new plane. So function, and now what we want to do is, this.planes++. So essentially we want to add a new plane, whenever we click on this button. So eventually that's what we will want to do.
+*/
+lufthansa.buyPlane = function () {
+    console.log(this);
+    //So essentially we want to add a new plane, whenever we click on this button.
+    this.planes++
+    console.log(this.planes);
+}
+
+document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane)
